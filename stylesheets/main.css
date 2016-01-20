@@ -164,6 +164,11 @@ address {
     margin: 0;
     padding: 80px; }
 
+.section.section--gradient {
+  @gradient; }
+.section.section--solid-bg {
+  background-color: #3B00FF; }
+
 .section--margin-bottom {
   margin-bottom: 100px; }
 
@@ -190,7 +195,8 @@ svg.defs {
     vertical-align: middle; }
 
 footer {
-  margin-top: 40px; }
+  margin-top: 40px;
+  background-color: #000; }
 
 .logo--shopify {
   margin-bottom: 40px;

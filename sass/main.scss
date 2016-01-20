@@ -51,7 +51,17 @@ $spacing--xlarge: 100px;
   -webkit-transform: translate($x, $y);
       -ms-transform: translate($x $y);
           transform: translate($x, $y);
+}
 
+@mixin gradient() {
+  background: rgba(255,190,12,1);
+  background: -moz-linear-gradient(45deg, rgba(255,190,12,1) 0%, rgba(254,29,123,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255,190,12,1)), color-stop(100%, rgba(254,29,123,1)));
+  background: -webkit-linear-gradient(45deg, rgba(255,190,12,1) 0%, rgba(254,29,123,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(255,190,12,1) 0%, rgba(254,29,123,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(255,190,12,1) 0%, rgba(254,29,123,1) 100%);
+  background: linear-gradient(45deg, rgba(255,190,12,1) 0%, rgba(254,29,123,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbe0c', endColorstr='#fe1d7b', GradientType=1 );
 }
 
 /* ==========================================================================
@@ -271,6 +281,17 @@ address {
   }
 }
 
+.section {
+
+  &.section--gradient {
+    @gradient;
+  }
+  &.section--solid-bg {
+    background-color: $brand--primary;
+  }
+}
+
+
 .section--margin-bottom {
   margin-bottom: $spacing--xlarge;
 }
@@ -306,6 +327,7 @@ svg.defs {
 
 footer {
   margin-top: $spacing--double;
+  background-color: $color;
 }
 
 .logo--shopify {
@@ -435,6 +457,7 @@ input[type=email] {
 .type--inverted {
   color: $color--inverted !important;
 }
+
 .type--large {
   font-size: 30px;
   line-height: 36px;
