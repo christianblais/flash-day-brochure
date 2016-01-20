@@ -288,6 +288,9 @@ input[type=email] {
   .type--xl.fr {
     font-size: 48px; }
 
+.type--inverted {
+  color: #fff !important; }
+
 .type--large {
   font-size: 30px;
   line-height: 36px; }

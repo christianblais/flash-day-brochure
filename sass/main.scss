@@ -432,6 +432,9 @@ input[type=email] {
   }
 }
 
+.type--inverted {
+  color: $color--inverted !important;
+}
 .type--large {
   font-size: 30px;
   line-height: 36px;
