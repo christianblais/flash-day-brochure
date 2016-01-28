@@ -317,7 +317,7 @@ input[type=email] {
 
 .type--xl {
   font-size: 48px;
-  line-height: 1.325em; }
+  line-height: 1.25em; }
 
 .type--large {
   font-size: 30px;
@@ -325,7 +325,9 @@ input[type=email] {
 
 .type--medium {
   font-size: 24px;
-  line-height: 32px; }
+  line-height: 36px; }
+  .type--medium * {
+    line-height: 36px; }
 
 .type--normal {
   font-size: 18px; }
