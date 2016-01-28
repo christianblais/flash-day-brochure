@@ -149,9 +149,9 @@ address {
   width: calc(100% - ( 20px * 2 ));
   z-index: 100; }
 
-.card {
+.section--white {
   background: #fff;
-  color: #444;
+  color: #000;
   padding: 40px 30px 30px; }
 
 .section--fullwidth {
@@ -183,6 +183,24 @@ address {
 .section--margin-bottom-half {
   margin-bottom: 20px; }
 
+.reasons .grid__cell {
+  background-image: url(../assets/reason1.png);
+  background-size: 72px auto;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  padding-top: 40px; }
+  .reasons .grid__cell.reason2 {
+    background-image: url(../assets/reason2.png); }
+  .reasons .grid__cell.reason3 {
+    background-image: url(../assets/reason3.png); }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  ul li {
+    margin-bottom: 40px; }
+
 svg.defs {
   height: 0;
   width: 0;
@@ -213,10 +231,6 @@ footer {
   width: 150px;
   height: auto; }
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-  .card {
-    padding: 60px; } }
 /* ==========================================================================
    Logo image
    ========================================================================== */
@@ -507,14 +521,11 @@ input[type=email] {
     flex-grow: 1;
     padding: 10px; }
 
-  .grid.grid--large .grid__cell {
-    padding: 10px 40px 10px 40px; }
-
-  .grid__cell > .grid, .grid__cell > .grid--large {
+  .grid__cell > .grid {
     width: 100%; }
-    .grid__cell > .grid > .grid__cell:first-of-type, .grid__cell > .grid--large > .grid__cell:first-of-type {
+    .grid__cell > .grid > .grid__cell:first-of-type {
       padding-left: 0; }
-    .grid__cell > .grid > .grid__cell:last-of-type, .grid__cell > .grid--large > .grid__cell:last-of-type {
+    .grid__cell > .grid > .grid__cell:last-of-type {
       padding-right: 0; }
 
   .grid .grid__cell.grid__cell--three-quarter {
@@ -546,7 +557,13 @@ input[type=email] {
     flex: 0 0 auto; }
 
   .grid.grid--stretch {
-    align-items: stretch; } }
+    align-items: stretch; }
+
+  .reasons .grid__cell {
+    padding-top: 40px; }
+
+  .grid__cell.rules {
+    padding: 60px; } }
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */ }
 /* ==========================================================================

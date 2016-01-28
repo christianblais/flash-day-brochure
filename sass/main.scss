@@ -265,9 +265,9 @@ address {
   z-index: 100;
 }
 
-.card {
+.section--white {
   background: #fff;
-  color: #444;
+  color: $color;
   padding: $spacing--double ($spacing + $spacing--half) ($spacing + $spacing--half);
 }
 
@@ -301,6 +301,32 @@ address {
 
 .section--margin-bottom-half {
   margin-bottom: $spacing;
+}
+
+.reasons .grid__cell {
+  background-image: url(../assets/reason1.png);
+  background-size: 72px auto;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  padding-top: $spacing--double;
+
+  &.reason2 {
+    background-image: url(../assets/reason2.png);
+  }
+
+  &.reason3 {
+    background-image: url(../assets/reason3.png);
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-bottom: $spacing--double;
+  }
 }
 
 svg.defs {
@@ -339,15 +365,6 @@ footer {
   max-width: 150px;
   width: 150px;
   height: auto;
-}
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-
-  .card {
-    padding: $spacing * 3;
-  }
-
 }
 
 /* ==========================================================================
@@ -699,11 +716,7 @@ input[type=email] {
     padding: 10px;
   }
 
-  .grid.grid--large .grid__cell {
-    padding: 10px $spacing--double 10px $spacing--double;
-  }
-
-  .grid__cell > .grid, .grid__cell > .grid--large {
+  .grid__cell > .grid {
     width: 100%;
 
     > .grid__cell:first-of-type {
@@ -750,6 +763,14 @@ input[type=email] {
 
   .grid.grid--stretch {
     align-items: stretch;
+  }
+
+  .reasons .grid__cell {
+    padding-top: $spacing--double;
+  }
+
+  .grid__cell.rules {
+    padding: ($spacing * 3);
   }
 
 }
