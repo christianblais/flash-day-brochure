@@ -15,7 +15,7 @@ $typesize--medium: 24px;
 $typesize--large: 30px;
 $typesize--xlarge: 48px;
 
-$font--sans-serif: Montserrat;
+$font--sans-serif: "azo-sans-web";
 $color: #000;
 $color--lighter: #333;
 
@@ -32,7 +32,7 @@ $spacing--xlarge: 100px;
 
 @mixin type--uppercase {
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 6px;
 }
 
 @mixin calc($property, $expression) {
@@ -111,7 +111,7 @@ html {
   color: $color--inverted;
   font-size: $typesize--normal;
   line-height: 1.4;
-  font-family: $font--sans-serif, arial, sans-serif;
+  font-family: $font--sans-serif, Montserrat, arial, sans-serif;
   background-color: $brand--primary;
 }
 
@@ -235,14 +235,6 @@ address {
    Grid system
    ========================================================================== */
 
-.container {
-  padding: $spacing;
-}
-
-.container.container--no-padding {
-  padding: 0;
-}
-
 .grid {
   display: flex;
   flex-direction: column;
@@ -250,6 +242,7 @@ address {
 
 .grid .grid__cell {
   flex-grow: 1;
+  padding: $spacing--double $spacing;
 }
 
 
@@ -265,15 +258,22 @@ address {
   z-index: 100;
 }
 
+.centered-on-small-screens {
+  text-align: center;
+}
+
 .section--white {
   background: #fff;
   color: $color;
-  padding: $spacing--double ($spacing + $spacing--half) ($spacing + $spacing--half);
+}
+
+.section--brand, .section--white {
+  padding: $spacing;
 }
 
 .section--fullwidth {
   background: $brand--primary--darker;
-  padding: $spacing--xlarge $spacing--double;
+  padding: $spacing--double $spacing;
   margin: 0;
   background-image: url(../assets/img/on-display-pattern.png);
   background-size: 50%;
@@ -281,7 +281,6 @@ address {
   &.section--fullwidth--footer {
     background: $color;
     margin: 0;
-    padding: $spacing--double * 2;
   }
 }
 
@@ -319,14 +318,28 @@ address {
   }
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
+ol {
+  margin: 0 0 1.5em;
   padding: 0;
+  counter-reset: item;
+}
 
-  li {
-    margin-bottom: $spacing--double;
-  }
+ol > li {
+  margin-bottom: $spacing--double;
+  padding: 0 0 0 2em;
+  text-indent: -2em;
+  list-style-type: none;
+  counter-increment: item;
+}
+
+ol > li:before {
+  display: inline-block;
+  width: 1em;
+  padding-right: 0.5em;
+  font-weight: 900;
+  color: $brand--primary;
+  text-align: right;
+  content: counter(item) ".";
 }
 
 svg.defs {
@@ -374,8 +387,11 @@ footer {
 .hero {
   background-size: contain;
   background-repeat: no-repeat;
-  width: 500px;
-  height: 342px;
+  background-position: center;
+  max-width: 500px;
+  height: 250px;
+  position: relative;
+  margin: 0 auto;
   background-image: url(../assets/logo/logo-flashday.png);
 }
 
@@ -384,20 +400,24 @@ footer {
    ========================================================================== */
 
 h1, h2, h3, h4 {
-  font-family: $font--sans-serif, serif;
+  font-family: $font--sans-serif, Monserrat, Arial, sans-serif;
   font-weight: normal;
   margin: 0;
 }
 
 h1 {
   font-size: $typesize--xlarge;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.125em;
 }
 
 h2 {
   font-size: $typesize--large;
+  font-weight: 700;
 }
 
-h2 {
+h3 {
   font-size: $typesize--medium;
 }
 
@@ -407,7 +427,7 @@ h4 {
 
 p {
   margin-top: 0;
-  line-height: 28px;
+  line-height: 30px;
 }
 
 a.btn, button.btn, input.btn {
@@ -422,6 +442,11 @@ a.btn, button.btn, input.btn {
   display: inline-block;
   margin-top: $spacing;
   box-shadow: -5px 5px rgba(0,0,0,0.2);
+  text-align: center;
+  &.btn--gradient {
+    @include gradient;
+    color: #fff;
+  }
 }
 
 input  {
@@ -467,7 +492,7 @@ input[type=email] {
 
 .type--xl {
   font-size: $typesize--xlarge;
-  line-height: 1.25em;
+  line-height: 1.125em;
 }
 
 .type--large {
@@ -489,7 +514,8 @@ input[type=email] {
 }
 
 .type--display {
-  font-family: $font--sans-serif;
+  font-style: italic;
+  font-weight: 300;
 }
 .type--uppercase {
   @include type--uppercase;
@@ -633,12 +659,12 @@ input[type=email] {
 
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 /*
@@ -661,21 +687,13 @@ input[type=email] {
  *    `:before` to contain the top-margins of child elements.
  */
 
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+.clearfix:before, .clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
 }
 
 .clearfix:after {
-    clear: both;
-}
-
-@media only screen and (min-width: 45em) {
-  .type--xl {
-    font-size: 72px;
-  }
-
+  clear: both;
 }
 
 /* ==========================================================================
@@ -686,6 +704,27 @@ input[type=email] {
 
 @media only screen and (min-width: 45em) {
   /* Style adjustments for viewports that meet the condition */
+
+  .hero {
+    margin: 0;
+    background-position: left;
+  }
+
+  .centered-on-small-screens {
+    text-align: left;
+  }
+
+  .type--xl {
+    font-size: 72px;
+  }
+
+  .section--fullwidth {
+    padding: $spacing--xlarge $spacing--double;
+  }
+
+  .section--brand, .section--white {
+    padding: $spacing--double ($spacing + $spacing--half) ($spacing + $spacing--half);
+  }
 
   .container {
     padding: 20px;
