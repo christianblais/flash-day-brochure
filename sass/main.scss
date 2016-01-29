@@ -251,9 +251,9 @@ address {
    ========================================================================== */
 
 .nav {
-  position: fixed;
+  position: absolute;
   height: 30px;
-  padding-top: 5px;
+  top: $spacing;
   width: calc(100% - ( #{$spacing} * 2 ));
   z-index: 100;
 }
@@ -513,6 +513,10 @@ input[type=email] {
   font-size: $typesize--normal;
 }
 
+.type--tiny {
+  font-size: 14px;
+}
+
 .type--display {
   font-style: italic;
   font-weight: 300;
@@ -704,6 +708,14 @@ input[type=email] {
 
 @media only screen and (min-width: 45em) {
   /* Style adjustments for viewports that meet the condition */
+
+  .nav {
+    position: fixed;
+    height: 30px;
+    top: $spacing;
+    width: calc(100% - ( #{$spacing--double} * 2 ));
+    z-index: 100;
+  }
 
   .hero {
     margin: 0;

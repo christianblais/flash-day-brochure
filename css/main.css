@@ -138,9 +138,9 @@ address {
    Specific stuff
    ========================================================================== */
 .nav {
-  position: fixed;
+  position: absolute;
   height: 30px;
-  padding-top: 5px;
+  top: 20px;
   width: calc(100% - ( 20px * 2 ));
   z-index: 100; }
 
@@ -363,6 +363,9 @@ input[type=email] {
 .type--normal {
   font-size: 18px; }
 
+.type--tiny {
+  font-size: 14px; }
+
 .type--display {
   font-style: italic;
   font-weight: 300; }
@@ -525,6 +528,13 @@ input[type=email] {
    ========================================================================== */
 @media only screen and (min-width: 45em) {
   /* Style adjustments for viewports that meet the condition */
+  .nav {
+    position: fixed;
+    height: 30px;
+    top: 20px;
+    width: calc(100% - ( 40px * 2 ));
+    z-index: 100; }
+
   .hero {
     margin: 0;
     background-position: left; }
